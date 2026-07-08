@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Plumbing Co. — Precision Residential & Commercial Plumbing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1720;
+    --ink-soft:#1C2733;
+    --copper:#B8763E;
+    --copper-light:#D89A63;
+    --slate:#5B6B78;
+    --cream:#F5F3EF;
+    --cream-2:#EDEAE2;
+    --hairline:#DDD8CF;
+    --hairline-dark:#2B3744;
+    --white:#FFFFFF;
+    --max:1180px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+
+  h1,h2,h3{font-weight:700;letter-spacing:-0.02em;line-height:1.05;}
+  .serif{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.01em;}
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--copper);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(245,243,239,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--hairline);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 32px;max-width:var(--max);margin:0 auto;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-weight:800;font-size:18px;letter-spacing:-0.01em;
+  }
+  .logo .mark{width:26px;height:26px;flex-shrink:0;}
+  .nav-links{display:flex;gap:36px;align-items:center;}
+  .nav-links a{font-size:14px;font-weight:500;color:var(--ink-soft);transition:color .2s;}
+  .nav-links a:hover{color:var(--copper);}
+  .nav-cta{
+    background:var(--ink);color:var(--white);
+    padding:11px 22px;border-radius:2px;font-size:14px;font-weight:600;
+    transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--copper);}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .nav-toggle svg{width:22px;height:22px;}
+
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:168px 0 100px;
+    background:var(--ink);
+    color:var(--cream);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 85% 15%, rgba(184,118,62,0.18), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;z-index:1;
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--copper-light);margin-bottom:28px;
+  }
+  .eyebrow::before{
+    content:"";width:28px;height:1px;background:var(--copper-light);
+  }
+  .hero h1{
+    font-size:clamp(38px,5.2vw,64px);
+    color:var(--white);
+    margin-bottom:26px;
+  }
+  .hero h1 em{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--copper-light);
+  }
+  .hero p.lede{
+    font-size:18px;line-height:1.6;color:#B9C2CB;max-width:480px;margin-bottom:40px;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:52px;}
+  .btn-primary{
+    background:var(--copper);color:var(--ink);
+    padding:16px 30px;font-weight:700;font-size:15px;border-radius:2px;
+    transition:background .2s, transform .2s;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .btn-primary:hover{background:var(--copper-light);transform:translateY(-1px);}
+  .btn-secondary{
+    border:1px solid rgba(245,243,239,0.3);color:var(--cream);
+    padding:16px 30px;font-weight:600;font-size:15px;border-radius:2px;
+    transition:border-color .2s,background .2s;
+  }
+  .btn-secondary:hover{border-color:var(--copper-light);background:rgba(255,255,255,0.04);}
+
+  .hero-stats{display:flex;gap:40px;flex-wrap:wrap;}
+  .hero-stat .num{font-family:'Fraunces',serif;font-size:30px;color:var(--white);font-weight:500;}
+  .hero-stat .label{font-size:12.5px;color:#8B98A3;letter-spacing:0.04em;margin-top:2px;}
+
+  .hero-diagram{position:relative;z-index:1;}
+  .hero-diagram svg{width:100%;height:auto;}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust-strip{
+    background:var(--ink-soft);border-top:1px solid var(--hairline-dark);
+  }
+  .trust-inner{
+    max-width:var(--max);margin:0 auto;padding:22px 32px;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;
+  }
+  .trust-item{
+    display:flex;align-items:center;gap:10px;color:#AEB8C1;font-size:13.5px;font-weight:500;
+  }
+  .trust-item svg{width:16px;height:16px;color:var(--copper-light);flex-shrink:0;}
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:110px 0;}
+  .section-head{max-width:640px;margin-bottom:64px;}
+  .section-eyebrow{
+    font-size:12.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--copper);margin-bottom:16px;
+  }
+  .section-head h2{font-size:clamp(28px,3.4vw,42px);color:var(--ink);}
+  .section-head p{font-size:16.5px;color:var(--slate);margin-top:18px;line-height:1.65;}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--cream);}
+  .service-list{border-top:1px solid var(--hairline);}
+  .service-row{
+    display:grid;grid-template-columns:80px 1fr 240px 44px;
+    align-items:center;gap:32px;
+    padding:36px 0;border-bottom:1px solid var(--hairline);
+    transition:padding-left .25s;
+  }
+  .service-row:hover{padding-left:12px;}
+  .service-num{
+    font-family:'Fraunces',serif;font-size:15px;color:var(--copper);font-weight:500;
+  }
+  .service-name{font-size:23px;font-weight:600;letter-spacing:-0.01em;}
+  .service-desc{font-size:14.5px;color:var(--slate);line-height:1.55;}
+  .service-arrow{
+    width:36px;height:36px;border-radius:50%;border:1px solid var(--hairline);
+    display:flex;align-items:center;justify-content:center;
+    transition:background .25s,border-color .25s,transform .25s;
+    flex-shrink:0;
+  }
+  .service-row:hover .service-arrow{background:var(--copper);border-color:var(--copper);transform:rotate(45deg);}
+  .service-arrow svg{width:15px;height:15px;color:var(--ink);}
+
+  @media (max-width:760px){
+    .service-row{grid-template-columns:40px 1fr 34px;}
+    .service-desc{display:none;}
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process{background:var(--ink);color:var(--cream);position:relative;overflow:hidden;}
+  .process .section-eyebrow{color:var(--copper-light);}
+  .process .section-head h2{color:var(--white);}
+  .process .section-head p{color:#AEB8C1;}
+  .process-steps{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--hairline-dark);border:1px solid var(--hairline-dark);
+    margin-top:8px;
+  }
+  .process-step{background:var(--ink);padding:40px 32px;}
+  .process-step .step-mark{
+    font-family:'Fraunces',serif;font-style:italic;color:var(--copper-light);font-size:16px;margin-bottom:24px;display:block;
+  }
+  .process-step h3{font-size:19px;color:var(--white);margin-bottom:12px;font-weight:600;}
+  .process-step p{font-size:14px;color:#9AA6B0;line-height:1.6;}
+
+  @media (max-width:860px){
+    .process-steps{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:520px){
+    .process-steps{grid-template-columns:1fr;}
+  }
+
+  /* ---------- GUARANTEE / PULL QUOTE ---------- */
+  .guarantee{
+    background:var(--cream-2);
+    border-top:1px solid var(--hairline);
+    border-bottom:1px solid var(--hairline);
+  }
+  .guarantee-inner{
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+  }
+  .guarantee blockquote{
+    font-family:'Fraunces',serif;font-weight:400;font-style:italic;
+    font-size:clamp(24px,2.6vw,32px);line-height:1.4;color:var(--ink);
+  }
+  .guarantee blockquote span{color:var(--copper);}
+  .guarantee cite{
+    display:block;margin-top:24px;font-style:normal;font-size:13.5px;color:var(--slate);font-weight:600;letter-spacing:0.03em;
+  }
+  .guarantee-badges{display:flex;flex-direction:column;gap:0;}
+  .badge-row{
+    display:flex;align-items:baseline;gap:18px;padding:22px 0;border-bottom:1px solid var(--hairline);
+  }
+  .badge-row:first-child{padding-top:0;}
+  .badge-num{font-family:'Fraunces',serif;font-size:32px;color:var(--ink);font-weight:500;min-width:74px;}
+  .badge-text h4{font-size:15px;font-weight:600;margin-bottom:4px;}
+  .badge-text p{font-size:13.5px;color:var(--slate);}
+
+  @media (max-width:800px){
+    .guarantee-inner{grid-template-columns:1fr;gap:44px;}
+  }
+
+  /* ---------- SERVICE AREA ---------- */
+  .area{background:var(--cream);}
+  .area-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .area-list{columns:2;column-gap:32px;margin-top:28px;}
+  .area-list li{
+    font-size:14.5px;color:var(--ink-soft);padding:9px 0;border-bottom:1px solid var(--hairline);
+    break-inside:avoid;
+  }
+  @media (max-width:800px){
+    .area-inner{grid-template-columns:1fr;gap:40px;}
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{background:var(--ink);color:var(--cream);}
+  .testimonials .section-eyebrow{color:var(--copper-light);}
+  .testimonials .section-head h2{color:var(--white);}
+  .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hairline-dark);border:1px solid var(--hairline-dark);}
+  .t-card{background:var(--ink-soft);padding:36px 30px;display:flex;flex-direction:column;gap:20px;}
+  .t-stars{display:flex;gap:3px;}
+  .t-stars svg{width:14px;height:14px;color:var(--copper-light);}
+  .t-card p{font-size:15px;line-height:1.65;color:#D6DCE1;}
+  .t-name{font-size:13.5px;font-weight:600;color:var(--white);}
+  .t-loc{font-size:12.5px;color:#8B98A3;}
+
+  @media (max-width:860px){.t-grid{grid-template-columns:1fr;}}
+
+  /* ---------- CTA BAND ---------- */
+  .cta-band{
+    background:var(--copper);
+    padding:80px 0;
+  }
+  .cta-band-inner{
+    display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;
+  }
+  .cta-band h2{font-size:clamp(26px,3.2vw,38px);color:var(--ink);max-width:520px;}
+  .cta-band .btn-primary{background:var(--ink);color:var(--white);}
+  .cta-band .btn-primary:hover{background:var(--ink-soft);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:#8B98A3;padding:70px 0 32px;}
+  .footer-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid var(--hairline-dark);
+  }
+  .footer-brand .logo{color:var(--white);margin-bottom:16px;}
+  .footer-brand p{font-size:14px;line-height:1.6;max-width:280px;}
+  .footer-col h5{color:var(--white);font-size:13px;font-weight:600;letter-spacing:0.04em;margin-bottom:18px;text-transform:uppercase;}
+  .footer-col a, .footer-col li{display:block;font-size:14px;margin-bottom:12px;color:#9AA6B0;transition:color .2s;}
+  .footer-col a:hover{color:var(--copper-light);}
+  .footer-bottom{
+    padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#6B7784;
+  }
+
+  @media (max-width:800px){
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:520px){
+    .footer-grid{grid-template-columns:1fr;}
+  }
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-diagram{order:-1;max-width:340px;margin:0 auto 20px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#" class="logo">
+      <svg class="mark" viewBox="0 0 26 26" fill="none">
+        <circle cx="13" cy="13" r="12" stroke="#B8763E" stroke-width="1.4"/>
+        <path d="M8 13h4v-4M13 17v-4h5" stroke="#B8763E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      MERIDIAN PLUMBING CO.
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#area">Service Area</a>
+      <a href="#reviews">Reviews</a>
+      <a href="tel:+15551234567" class="nav-cta">(555) 123-4567</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Licensed &amp; Insured — Est. 2009</div>
+      <h1>Plumbing work built to <em>outlast</em> the warranty.</h1>
+      <p class="lede">Meridian handles residential and commercial plumbing with the precision of a finish carpenter — clean installs, honest pricing, and a crew that shows up when they say they will.</p>
+      <div class="hero-actions">
+        <a href="tel:+15551234567" class="btn-primary">
+          Call for same-day service
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#services" class="btn-secondary">View services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">4,200+</div><div class="label">Jobs completed</div></div>
+        <div class="hero-stat"><div class="num">15 yrs</div><div class="label">In business</div></div>
+        <div class="hero-stat"><div class="num">4.9★</div><div class="label">Average rating</div></div>
+      </div>
+    </div>
+    <div class="hero-diagram" aria-hidden="true">
+      <svg viewBox="0 0 420 460" fill="none">
+        <!-- valve cross-section line art -->
+        <circle cx="210" cy="220" r="150" stroke="#2B3744" stroke-width="1"/>
+        <circle cx="210" cy="220" r="105" stroke="#B8763E" stroke-width="1" opacity="0.5"/>
+        <!-- pipe body -->
+        <rect x="120" y="190" width="180" height="60" rx="4" stroke="#D89A63" stroke-width="1.5"/>
+        <line x1="120" y1="210" x2="300" y2="210" stroke="#2B3744" stroke-width="1"/>
+        <line x1="120" y1="230" x2="300" y2="230" stroke="#2B3744" stroke-width="1"/>
+        <!-- flanges -->
+        <rect x="96" y="180" width="24" height="80" rx="2" stroke="#D89A63" stroke-width="1.5"/>
+        <rect x="300" y="180" width="24" height="80" rx="2" stroke="#D89A63" stroke-width="1.5"/>
+        <circle cx="108" cy="196" r="2" fill="#B8763E"/>
+        <circle cx="108" cy="244" r="2" fill="#B8763E"/>
+        <circle cx="312" cy="196" r="2" fill="#B8763E"/>
+        <circle cx="312" cy="244" r="2" fill="#B8763E"/>
+        <!-- valve stem -->
+        <line x1="210" y1="190" x2="210" y2="110" stroke="#D89A63" stroke-width="1.5"/>
+        <rect x="182" y="80" width="56" height="34" rx="3" stroke="#D89A63" stroke-width="1.5"/>
+        <line x1="182" y1="97" x2="238" y2="97" stroke="#2B3744" stroke-width="1"/>
+        <!-- gate inside body -->
+        <line x1="210" y1="190" x2="210" y2="250" stroke="#B8763E" stroke-width="2"/>
+        <!-- flow arrows -->
+        <path d="M60 220 L96 220" stroke="#5B6B78" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M324 220 L360 220" stroke="#5B6B78" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0 0 L8 4 L0 8 Z" fill="#5B6B78"/>
+          </marker>
+        </defs>
+        <!-- annotation lines -->
+        <line x1="210" y1="60" x2="210" y2="40" stroke="#3A4753" stroke-width="1"/>
+        <text x="210" y="30" fill="#8B98A3" font-family="Inter" font-size="10" letter-spacing="1" text-anchor="middle">GATE VALVE — SEC. A-A</text>
+        <text x="210" y="420" fill="#5B6B78" font-family="Inter" font-size="10" letter-spacing="1.5" text-anchor="middle">FLOW REGULATED · Ø2.5"</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>State-licensed master plumbers</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>$2M liability coverage</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>24/7 emergency line</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>2-year workmanship warranty</div>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Capabilities</div>
+      <h2>Every fixture, line, and system — done once, done right.</h2>
+      <p>From a dripping faucet to a full commercial repipe, our crews carry the tooling and permits to close the job in one visit whenever possible.</p>
+    </div>
+    <div class="service-list">
+      <div class="service-row">
+        <div class="service-num">01</div>
+        <div class="service-name">Emergency Repair</div>
+        <div class="service-desc">Burst pipes, active leaks, and no-water calls — dispatched within the hour, day or night.</div>
+        <div class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">02</div>
+        <div class="service-name">Drain &amp; Sewer</div>
+        <div class="service-desc">Camera inspection, hydro-jetting, and trenchless line repair for stubborn clogs and root intrusion.</div>
+        <div class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">03</div>
+        <div class="service-name">Water Heaters</div>
+        <div class="service-desc">Tank and tankless installs, repairs, and replacements — matched to your household's actual usage.</div>
+        <div class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">04</div>
+        <div class="service-name">Repiping</div>
+        <div class="service-desc">Whole-home copper and PEX repipes for aging galvanized systems, with minimal wall disruption.</div>
+        <div class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">05</div>
+        <div class="service-name">Fixture &amp; Remodel</div>
+        <div class="service-desc">Kitchen and bath rough-ins, fixture upgrades, and coordination with your contractor or designer.</div>
+        <div class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">06</div>
+        <div class="service-name">Commercial Maintenance</div>
+        <div class="service-desc">Scheduled inspections and priority-response contracts for property managers and facilities teams.</div>
+        <div class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">How a job runs</div>
+      <h2>No surprises between the quote and the invoice.</h2>
+      <p>The same four-step sequence on every job, whether it's a two-hour repair or a two-week repipe.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <span class="step-mark">i.</span>
+        <h3>Diagnose</h3>
+        <p>Camera and pressure-test the system on site — no guessing, no upsell based on assumptions.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-mark">ii.</span>
+        <h3>Flat quote</h3>
+        <p>One price before we start, covering parts and labor. You approve it before any tool touches the wall.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-mark">iii.</span>
+        <h3>Do the work</h3>
+        <p>Drop cloths down, work area protected, cleaned up nightly on multi-day jobs.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-mark">iv.</span>
+        <h3>Walkthrough</h3>
+        <p>We test the fix with you present and log it under your 2-year workmanship warranty.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guarantee">
+  <div class="wrap guarantee-inner">
+    <div>
+      <blockquote>"If a repair fails from our workmanship inside <span>two years</span>, we return and fix it at no charge — full stop."</blockquote>
+      <cite>— The Meridian Workmanship Guarantee</cite>
+    </div>
+    <div class="guarantee-badges">
+      <div class="badge-row">
+        <div class="badge-num">A+</div>
+        <div class="badge-text"><h4>BBB Accredited</h4><p>Zero unresolved complaints on file since accreditation.</p></div>
+      </div>
+      <div class="badge-row">
+        <div class="badge-num">2 yr</div>
+        <div class="badge-text"><h4>Workmanship warranty</h4><p>Covers labor on every repair and installation we perform.</p></div>
+      </div>
+      <div class="badge-row">
+        <div class="badge-num">60 min</div>
+        <div class="badge-text"><h4>Average emergency response</h4><p>Within our core service radius, day or night.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="area" id="area">
+  <div class="wrap area-inner">
+    <div>
+      <div class="section-eyebrow">Service Area</div>
+      <h2 style="font-size:clamp(26px,3vw,36px);">Local crews, dispatched from three yards across the metro.</h2>
+      <p style="color:var(--slate);margin-top:16px;font-size:15.5px;line-height:1.6;">Not sure if you're in range? Call the line below — we'll tell you straight away, and refer you to someone reputable if we can't make it.</p>
+    </div>
+    <ul class="area-list">
+      <li>Northgate</li>
+      <li>Riverside District</li>
+      <li>Old Mill Quarter</li>
+      <li>Fairview Heights</li>
+      <li>Harborview</li>
+      <li>Lindenwood</li>
+      <li>South Crossing</li>
+      <li>Maple Terrace</li>
+      <li>Union Park</li>
+      <li>Brookhaven</li>
+      <li>Cedar Grove</li>
+      <li>Eastgate</li>
+    </ul>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">On record</div>
+      <h2>What the last few jobs looked like.</h2>
+    </div>
+    <div class="t-grid">
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p>Water heater died on a Sunday morning. They picked up, gave me a real quote over the phone, and had it replaced by 3pm the same day.</p>
+        <div><div class="t-name">D. Foster</div><div class="t-loc">Riverside District</div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p>Repiped our whole 1962 house over four days. Cleaned up every single evening, patched the drywall better than it was before.</p>
+        <div><div class="t-name">M. Alvarez</div><div class="t-loc">Fairview Heights</div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p>We use them across all six of our rental units now. Flat pricing means no arguments with tenants about surprise charges.</p>
+        <div><div class="t-name">J. Whitfield, Property Mgmt</div><div class="t-loc">Union Park</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap cta-band-inner">
+    <h2>Something leaking, backed up, or just old? Let's take a look.</h2>
+    <a href="tel:+15551234567" class="btn-primary">
+      Call (555) 123-4567
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <svg class="mark" viewBox="0 0 26 26" fill="none">
+            <circle cx="13" cy="13" r="12" stroke="#B8763E" stroke-width="1.4"/>
+            <path d="M8 13h4v-4M13 17v-4h5" stroke="#B8763E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          MERIDIAN PLUMBING CO.
+        </a>
+        <p>Licensed residential and commercial plumbing. Serving the metro area since 2009.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="#services">Emergency Repair</a>
+        <a href="#services">Drain &amp; Sewer</a>
+        <a href="#services">Water Heaters</a>
+        <a href="#services">Repiping</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="#process">Our Process</a>
+        <a href="#area">Service Area</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="tel:+15551234567">(555) 123-4567</a>
+        <a href="mailto:office@meridianplumbingco.com">office@meridianplumbingco.com</a>
+        <li style="margin-top:4px;">Mon–Sat, 7am–7pm<br>24/7 emergency line</li>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Meridian Plumbing Co. License #PL-00482910.</span>
+      <span>Placeholder site — replace name, license #, and contact details before publishing.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
